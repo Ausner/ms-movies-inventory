@@ -1,0 +1,28 @@
+## Configuracion de Spring
+spring:
+  application:
+    name: ms-movies-inventory
+
+## Configuracion de Instancia 
+server:
+  port: 8088
+
+## Configuracion del cliente de Eureka
+## Configuracion del cliente de Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+    hostname: ms-inventory-products
+
+##Elasticsearch config
+elasticsearch:
+  host: act-grupal-cluster-2585180523.us-east-1.bonsaisearch.net
+  credentials:
+    user: 8ojmamqpqn
+    password: hls9vef5ye
+logging:
+  level:
+    tracer: TRACE
