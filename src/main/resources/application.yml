@@ -12,7 +12,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_URL:https://back-end-eureka-kmoa.onrender.com}
+      defaultZone: ${EUREKA_URL:https://back-end-eureka-kmoa.onrender.com/eureka}
   instance:
     preferIpAddress: true
     hostname: ms-inventory-products
