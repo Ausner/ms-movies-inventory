@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.unir.facets.data.DataAccessRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -47,25 +48,31 @@ public class FacetsService {
 	}
 
 	public MoviesQueryResponse getProducts(
-			List<String> description,
-			List<Integer> year,
+			 List<String> desc,
+			List<Integer> ano,
 			String name,
 			Boolean alquilada,
-			String video,
-			String image,
+			String img,
+			 Long precioAlquiler,
+			 Long precio,
 			String director,
-			Integer price,
+			 String alquilerHasta,
+			 String video,
+			Integer id,
 			String page) {
 
 		return repository.findProducts(
-				description,
-				year,
+				desc,
+				ano,
 				name,
 				alquilada,
-				video,
-				image,
+				img,
+				precioAlquiler,
+				precio,
 				director,
-				price,
+				alquilerHasta,
+				video,
+				id,
 				page);
 	}
 }

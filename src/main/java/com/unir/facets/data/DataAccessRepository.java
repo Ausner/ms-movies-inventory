@@ -67,29 +67,32 @@ public class DataAccessRepository {
 
     @SneakyThrows
     public MoviesQueryResponse findProducts(
-            List<String> description,
-            List<Integer> year,
+            List<String> desc,
+            List<Integer> ano,
             String name,
             Boolean alquilada,
-            String video,
-            String image,
+            String img,
+            Long precioAlquiler,
+            Long precio,
             String director,
-            Integer price,
+            String alquilerHasta,
+            String video,
+            Integer id,
             String page) {
 
         BoolQueryBuilder querySpec = QueryBuilders.boolQuery();
 
         // Si el usuario ha seleccionado algun valor relacionado con la descripcion, lo añadimos a la query
-        if (description != null && !description.isEmpty()) {
-            description.forEach(
-                    desc -> querySpec.must(QueryBuilders.termQuery(Consts.FIELD_DESCRIPTION, desc))
+        if (desc != null && !desc.isEmpty()) {
+            desc.forEach(
+                    des -> querySpec.must(QueryBuilders.termQuery(Consts.FIELD_DES, des))
             );
         }
 
         // Si el usuario ha seleccionado algun valor relacionado con el year, lo añadimos a la query
-        if (year != null && !year.isEmpty()) {
-            year.forEach(
-                    y -> querySpec.must(QueryBuilders.termQuery(Consts.FIELD_YEAR, y))
+        if (ano != null && !ano.isEmpty()) {
+            ano.forEach(
+                    y -> querySpec.must(QueryBuilders.termQuery(Consts.FIELD_ANO, y))
             );
         }
 
@@ -98,6 +101,25 @@ public class DataAccessRepository {
             querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_NAME, name));
         }
 
+        // Si el usuario ha seleccionado algun valor relacionado con el nombre, lo añadimos a la query
+        if (!StringUtils.isEmpty(img)) {
+            querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_IMA, img));
+        }
+
+        // Si el usuario ha seleccionado algun valor relacionado con el price, lo añadimos a la query
+        if (precioAlquiler != null) {
+            querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_PRECIO_ALQUILER, precioAlquiler));
+        }
+
+        // Si el usuario ha seleccionado algun valor relacionado con el price, lo añadimos a la query
+        if (precio != null) {
+            querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_PRECIO, precio));
+        }
+
+        // Si el usuario ha seleccionado algun valor relacionado con el nombre, lo añadimos a la query
+        if (!StringUtils.isEmpty(alquilerHasta)) {
+            querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_ALQUILER_HASTA, alquilerHasta));
+        }
 
         // Si el usuario ha seleccionado algun valor relacionado con el alquilada, lo añadimos a la query
         if (alquilada != null) {
@@ -109,10 +131,7 @@ public class DataAccessRepository {
             querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_VIDEO, video));
         }
 
-        // Si el usuario ha seleccionado algun valor relacionado con el image, lo añadimos a la query
-        if (!StringUtils.isEmpty(image)) {
-            querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_IMAGE, image));
-        }
+
 
         // Si el usuario ha seleccionado algun valor relacionado con el director, lo añadimos a la query
         if (!StringUtils.isEmpty(director)) {
@@ -120,8 +139,8 @@ public class DataAccessRepository {
         }
 
         // Si el usuario ha seleccionado algun valor relacionado con el price, lo añadimos a la query
-        if (price != null) {
-            querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_PRICE, price));
+        if (id != null) {
+            querySpec.must(QueryBuilders.matchQuery(Consts.FIELD_ID, id));
         }
 
 

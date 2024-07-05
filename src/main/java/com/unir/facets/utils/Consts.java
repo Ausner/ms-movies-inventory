@@ -7,13 +7,16 @@ public final class Consts {
     }
 
     //Nombres de campos
-    public static final String FIELD_NAME = "Name";
-    public static final String FIELD_DESCRIPTION = "Description";
-    public static final String FIELD_IMAGE = "Image";
-    public static final String FIELD_ALQUILADA = "Alquilada";
-    public static final String FIELD_YEAR = "Year";
-    public static final String FIELD_VIDEO = "Video";
-    public static final String FIELD_DIRECTOR = "Director";
-    public static final String FIELD_PRICE = "Price";
+    public static final String FIELD_NAME = "name";
+    public static final String FIELD_DES = "desc";
+    public static final String FIELD_IMA = "img";
+    public static final String FIELD_ALQUILADA = "alquilada";
+    public static final String FIELD_PRECIO_ALQUILER = "precioAlquiler";
+    public static final String FIELD_PRECIO = "precio";
+    public static final String FIELD_DIRECTOR = "director";
+    public static final String FIELD_ANO = "ano";
+    public static final String FIELD_ALQUILER_HASTA = "alquilerHasta";
+    public static final String FIELD_VIDEO = "video";
+    public static final String FIELD_ID = "id";
 
 }

@@ -64,26 +64,32 @@ public class FacetsController {
 
     @GetMapping("/facets")
     public ResponseEntity<MoviesQueryResponse> getProducts(
-            @RequestParam(required = false) List<String> description,
-            @RequestParam(required = false) List<Integer> year,
+            @RequestParam(required = false) List<String> desc,
+            @RequestParam(required = false) List<Integer> ano,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) Boolean alquilada,
-            @RequestParam(required = false) String video,
-            @RequestParam(required = false) String image,
+            @RequestParam(required = false) String img,
+            @RequestParam(required = false) Long precioAlquiler,
+            @RequestParam(required = false) Long precio,
             @RequestParam(required = false) String director,
-            @RequestParam(required = false) Integer price,
+            @RequestParam(required = false) String alquilerHasta,
+            @RequestParam(required = false) String video,
+            @RequestParam(required = false) Integer id,
             @RequestParam(required = false, defaultValue = "0") String page) {
 
 
         MoviesQueryResponse response = service.getProducts(
-				description,
-				year,
+				desc,
+				ano,
 				name,
 				alquilada,
-				video,
-                image,
+				img,
+                precioAlquiler,
+                precio,
                 director,
-                price,
+                alquilerHasta,
+                video,
+                id,
                 page);
         return ResponseEntity.ok(response);
     }

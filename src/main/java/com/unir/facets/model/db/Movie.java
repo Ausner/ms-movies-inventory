@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Document(indexName = "movies", createIndex = true)
+@Document(indexName = "movie", createIndex = true)
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,34 +21,47 @@ import lombok.ToString;
 @Builder
 @ToString
 public class Movie {
-	
-	@Id
+
+	@Field(type = FieldType.Text)
 	private String id;
 	
 	@Field(type = FieldType.Text, name = Consts.FIELD_NAME)
 	private String name;
 
-	@Field(type = FieldType.Text, name = Consts.FIELD_DESCRIPTION)
-	private String description;
+	@Field(type = FieldType.Text, name = Consts.FIELD_DES)
+	private String desc;
 
-	@Field(type = FieldType.Text, name = Consts.FIELD_YEAR)
-	private Integer year;
-	
-	@Field(type = FieldType.Integer, name = Consts.FIELD_IMAGE)
-	private String image;
+	@Field(type = FieldType.Integer, name = Consts.FIELD_IMA)
+	private String img;
 
-	
-	@Field(type = FieldType.Search_As_You_Type, name = Consts.FIELD_ALQUILADA)
+	@Field(type = FieldType.Boolean, name = Consts.FIELD_ALQUILADA)
 	private Boolean alquilada;
 
-	@Field(type = FieldType.Keyword, name = Consts.FIELD_VIDEO)
-	private String video;
+	@Field(type = FieldType.Long, name = Consts.FIELD_PRECIO_ALQUILER)
+	private Long precioAlquiler;
 
-	@Field(type = FieldType.Keyword, name = Consts.FIELD_DIRECTOR)
+	@Field(type = FieldType.Long, name = Consts.FIELD_PRECIO)
+	private Long precio;
+
+	@Field(type = FieldType.Text, name = Consts.FIELD_DIRECTOR)
 	private String director;
 
-	@Field(type = FieldType.Keyword, name = Consts.FIELD_PRICE)
-	private Integer price;
+	@Field(type = FieldType.Integer, name = Consts.FIELD_ANO)
+	private Integer ano;
+
+	@Field(type = FieldType.Text, name = Consts.FIELD_ALQUILER_HASTA)
+	private String alquilerHasta;
+
+	@Field(type = FieldType.Text, name = Consts.FIELD_VIDEO)
+	private String video;
+
+
+//	@Field(type = FieldType.Integer, name = Consts.FIELD_ID)
+//	private String id;
+
+
+
+
 
 
 }
